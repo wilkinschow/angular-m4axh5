@@ -11,10 +11,10 @@ export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
   constructor(
     private route: ActivatedRoute,
-    private cartService:CartService
+    private cartService: CartService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     // First get the product id from the current route.
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
       (product) => product.id === productIdFromRoute
     );
   }
-  addToCart(product:Product){
+  addToCart(product: Product) {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }
